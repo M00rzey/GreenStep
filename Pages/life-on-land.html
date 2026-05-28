@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life on Land - GreenStep</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid px-5">
+            <a class="navbar-brand" href="../index.html" style="font-size: 1.5em; font-weight: bold; color: var(--primary-green); display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-leaf"></i> GreenStep
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div style="flex-grow: 1; display: flex; justify-content: center; gap: 20px;">
+                    <input type="text" class="search-bar" placeholder="Search articles...">
+                </div>
+
+                <div style="display: flex; gap: 15px; align-items: center;">
+                    <a href="../index.html" style="color: white; text-decoration: none; font-weight: 600;">← Back Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== CATEGORY HEADER ========== -->
+    <div style=
+    "background: linear-gradient(rgba(16,185,129,0.6), rgba(16,185,129,0.7)), 
+                url('Foto/liveonland.jpg') center/cover no-repeat;
+    min-height: 300px;
+    padding: 60px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+">
+    <h1 style="font-size: 3em; margin-bottom: 15px;">🌿 Life on Land</h1>
+    <p style="font-size: 1.2em; opacity: 0.95;">Protecting forests, biodiversity, and ecosystems for a thriving planet</p>
+</div>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <div style="padding: 60px 20px;">
+        <div class="container">
+            <!-- Overview Section -->
+            <div style="background: var(--navy-bg); padding: 40px; border-radius: 15px; margin-bottom: 50px; border-left: 5px solid var(--primary-green);">
+                <h2 style="color: var(--primary-green); margin-bottom: 20px;">Protecting Our Terrestrial Ecosystems</h2>
+                <p style="line-height: 1.8; opacity: 0.9;">
+                    Forests cover 30% of Earth's land and are vital for biodiversity, carbon storage, and clean air. Deforestation, habitat loss, and unsustainable land use threaten countless species. 
+                    By supporting conservation efforts and making sustainable choices, we can protect life on land.
+                </p>
+            </div>
+
+            <!-- Featured Articles -->
+            <div style="margin-bottom: 50px;">
+                <h2 style="font-size: 2em; margin-bottom: 30px; padding-bottom: 15px; border-bottom: 2px solid var(--primary-green);">
+                    📰 Featured Articles
+                </h2>
+
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="challenge-card">
+                            <div style="color: var(--primary-green); font-size: 2em; margin-bottom: 10px;">🌲</div>
+                            <h3>Forests: The Lungs of Our Planet</h3>
+                            <p style="opacity: 0.8; margin: 15px 0;">
+                                Discover why forests are crucial for fighting climate change and supporting biodiversity. Learn about deforestation impacts and reforestation efforts worldwide.
+                            </p>
+                            <a href="https://www.theguardian.com/environment/forests" target="_blank" style="background: var(--primary-green); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; text-decoration: none; display: inline-block;">
+                                Read More →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <div class="challenge-card">
+                            <div style="color: var(--primary-green); font-size: 2em; margin-bottom: 10px;">🦁</div>
+                            <h3>Wildlife Conservation Success Stories</h3>
+                            <p style="opacity: 0.8; margin: 15px 0;">
+                                Read inspiring stories of species brought back from the brink of extinction through dedicated conservation efforts and community action.
+                            </p>
+                            <a href="https://www.bbc.com/news/science_and_environment" target="_blank" style="background: var(--primary-green); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; text-decoration: none; display: inline-block;">
+                                Read More →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Challenges -->
+            <div style="margin-bottom: 50px;">
+                <h2 style="font-size: 2em; margin-bottom: 30px; padding-bottom: 15px; border-bottom: 2px solid var(--primary-green);">
+                    🎯 Land Protection Challenges
+                </h2>
+
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <div>
+                            <div class="challenge-title">🌱 Plant 10 Native Trees</div>
+                            <p style="margin: 0; opacity: 0.8; font-size: 0.9em;">Plant native trees to restore local ecosystems</p>
+                        </div>
+                        <span class="challenge-badge badge-active">Active</span>
+                    </div>
+                    <div class="progress-bar-custom">
+                        <div class="progress-fill" style="background: var(--primary-green); width: 50%;"></div>
+                    </div>
+                    <div class="challenge-reward">✨ Reward: 800 XP + 8,000 Points</div>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <div>
+                            <div class="challenge-title">♻️ Support Sustainable Forest Products</div>
+                            <p style="margin: 0; opacity: 0.8; font-size: 0.9em;">Buy only FSC-certified wood and paper products</p>
+                        </div>
+                        <span class="challenge-badge badge-active">Active</span>
+                    </div>
+                    <div class="progress-bar-custom">
+                        <div class="progress-fill" style="background: var(--primary-green); width: 65%;"></div>
+                    </div>
+                    <div class="challenge-reward">✨ Reward: 500 XP + 5,000 Points</div>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-header">
+                        <div>
+                            <div class="challenge-title">🐦 Create Habitat for Local Wildlife</div>
+                            <p style="margin: 0; opacity: 0.8; font-size: 0.9em;">Build birdhouses, insect hotels, or plant native flowers</p>
+                        </div>
+                        <span class="challenge-badge badge-active">Active</span>
+                    </div>
+                    <div class="progress-bar-custom">
+                        <div class="progress-fill" style="background: var(--primary-green); width: 80%;"></div>
+                    </div>
+                    <div class="challenge-reward">✨ Reward: 600 XP + 6,000 Points</div>
+                </div>
+            </div>
+
+            <!-- Quick Tips -->
+            <div style="margin-bottom: 50px;">
+                <h2 style="font-size: 2em; margin-bottom: 30px; padding-bottom: 15px; border-bottom: 2px solid var(--primary-green);">
+                    💡 Quick Conservation Tips
+                </h2>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="eco-tip" style="border-left-color: var(--primary-green);">
+                            <div class="eco-tip-title">🌳 Support Protected Areas</div>
+                            <div class="eco-tip-text">Visit and support national parks and protected reserves that preserve natural habitats and wildlife.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="eco-tip" style="border-left-color: var(--primary-green);">
+                            <div class="eco-tip-title">📦 Choose Sustainable Products</div>
+                            <div class="eco-tip-text">Look for FSC-certified wood, palm-oil-free products, and sustainable fashion made from natural materials.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="eco-tip" style="border-left-color: var(--primary-green);">
+                            <div class="eco-tip-title">🌿 Grow Your Own Food</div>
+                            <div class="eco-tip-text">Start a garden to reduce your food footprint, support local biodiversity, and enjoy fresh produce.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="eco-tip" style="border-left-color: var(--primary-green);">
+                            <div class="eco-tip-title">🔗 Donate to Conservation</div>
+                            <div class="eco-tip-text">Support organizations working to protect forests, wildlife, and endangered species worldwide.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div style="background: linear-gradient(135deg, var(--primary-green), #059669); padding: 40px; border-radius: 15px; text-align: center;">
+                <h2 style="margin-bottom: 20px;">Ready to Protect Life on Land?</h2>
+                <p style="margin-bottom: 25px; font-size: 1.1em;">Join our conservation community on GreenStep</p>
+              <a href="../Pages/dashboard.html" class="cta-btn" style="border: none; cursor: pointer; text-decoration: none;">Start Protecting Nature</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <p>&copy; 2026 GreenStep IDN. Protecting Biodiversity Together. 🌍</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../Js/common.js"></script>
+    <script src="../Js/category.js"></script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenStep - Eco Action Platform</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- VIDEO BACKGROUND -->
+<video autoplay muted loop playsinline id="bg-video">
+    <source src="Foto/footage.mp4" type="video/mp4">
+        <video autoplay muted loop playsinline id="bg-video">      
+    </video>
+</video>
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid px-5">
+            <a class="navbar-brand" href="index.html" style="font-size: 1.5em; font-weight: bold; color: var(--primary-green); display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-leaf"></i> GreenStep
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div style="flex-grow: 1; display: flex; justify-content: center; gap: 20px;">
+                    <input type="text" class="search-bar" placeholder="Explore..." text align="left">
+                </div>
+
+                <div style="display: flex; gap: 15px; align-items: center;">
+                    <!-- Dashboard Link (Hidden by default, shows when logged in) -->
+                    <a href="Pages/dashboard.html" id="dashboardLink" style="color: white; text-decoration: none; font-weight: 600; display: none;">
+                        <i class="fas fa-chart-line"></i> Dashboard
+                    </a>
+
+                    <!-- Login Button (Shows when not logged in) -->
+                    <button class="donate-btn" id="loginBtn" onclick="openLoginModal()" style="display: block;">
+                        <i class="fas fa-sign-in-alt"></i> LOGIN
+                    </button>
+
+                    <!-- User Profile Menu (Shows when logged in) -->
+                    <div id="userMenu" style="display: none; position: relative;">
+                        <button class="donate-btn" onclick="toggleUserMenu()" style="background: linear-gradient(135deg, var(--primary-green), var(--cyan));">
+                            <i class="fas fa-user-circle"></i> <span id="userNameDisplay">User</span>
+                        </button>
+                        <div id="dropdownMenu" style="position: absolute; top: 50px; right: 0; background: var(--navy-bg); border: 1px solid var(--primary-green); border-radius: 8px; min-width: 200px; display: none; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                            <a href="Pages/dashboard.html" style="display: block; color: white; padding: 12px 15px; text-decoration: none; border-bottom: 1px solid var(--navy-bg);">
+                                <i class="fas fa-chart-line"></i> Dashboard
+                            </a>
+                            <a href="#" style="display: block; color: white; padding: 12px 15px; text-decoration: none; border-bottom: 1px solid var(--navy-bg);" onclick="alert('Profile settings coming soon!')">
+                                <i class="fas fa-cog"></i> Settings
+                            </a>
+                            <a href="#" style="display: block; color: white; padding: 12px 15px; text-decoration: none;" onclick="logout(); return false;">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== LOGIN MODAL ========== -->
+    <div id="loginModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background: var(--navy-bg); border: 2px solid var(--primary-green); color: white;">
+                <div class="modal-header" style="border-bottom: 2px solid var(--primary-green);">
+                    <h5 class="modal-title"><i class="fas fa-leaf"></i> Login to GreenStep</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm" onsubmit="handleLogin(event)">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" placeholder="your@email.com" required style="background: var(--dark-bg); color: white; border: 1px solid var(--primary-green);">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="••••••••" required style="background: var(--dark-bg); color: white; border: 1px solid var(--primary-green);">
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="remember" style="background: var(--dark-bg); border: 1px solid var(--primary-green);">
+                            <label class="form-check-label" for="remember">
+                                Remember me
+                            </label>
+                        </div>
+                        <button type="submit" class="btn w-100" style="background: var(--primary-green); color: white; font-weight: bold; border: none;">
+                            <i class="fas fa-sign-in-alt"></i> Login Now
+                        </button>
+                    </form>
+
+                    <hr style="border-color: var(--primary-green);">
+
+                    <div style="text-align: center; font-size: 0.9em;">
+                        <p>Don't have an account? <a href="#" style="color: var(--cyan); text-decoration: none;" onclick="alert('Sign up feature coming soon!')">Sign up here</a></p>
+                        <p><a href="#" style="color: var(--yellow); text-decoration: none; font-size: 0.85em;">Forgot password?</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== CATEGORY NAVIGATION ========== -->
+    <div class="category-nav">
+        <a href="Pages/climate-change.html" style="text-decoration: none; color: inherit;">
+            <div class="category-item category-climate">
+                <span class="category-icon">🔥</span>
+                <div class="category-label">Climate<br>Change</div>
+            </div>
+        </a>
+        <a href="Pages/life-on-land.html" style="text-decoration: none; color: inherit;">
+            <div class="category-item category-land">
+                <span class="category-icon">🌿</span>
+                <div class="category-label">Life<br>on Land</div>
+            </div>
+        </a>
+        <a href="Pages/life-in-water.html" style="text-decoration: none; color: inherit;">
+            <div class="category-item category-water">
+                <span class="category-icon">🌊</span>
+                <div class="category-label">Life in<br>Water</div>
+            </div>
+        </a>
+        <a href="Pages/protecting-wildlife.html" style="text-decoration: none; color: inherit;">
+            <div class="category-item category-wildlife">
+                <span class="category-icon">🦁</span>
+                <div class="category-label">Protecting<br>Wildlife</div>
+            </div>
+        </a>
+        <a href="Pages/eco-tips.html" style="text-decoration: none; color: inherit;">
+            <div class="category-item category-tips">
+                <span class="category-icon">💡</span>
+                <div class="category-label">Eco<br>Tips</div>
+            </div>
+        </a>
+    </div>
+
+    <!-- ========== CAROUSEL SECTION ========== -->
+    <div class="carousel-section">
+        <div class="carousel-container">
+            <div class="carousel-wrapper">
+                <!-- Card 1 -->
+            <div class="carousel-card card-1">
+                <div class="carousel-card-badge badge-yellow">🏆</div>
+                    <img src="Foto/endangeredanimal.jpg" alt="Endangered Animals" class="carousel-card-image">
+                    <div class="carousel-card-body">
+                        <h3>E for Endangered: 5 Incredible Animals Under Threat</h3>
+                        <p>We look at some incredible endangered species, the threats they face, and what we can do to help protect them.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="carousel-card card-2">
+                    <div class="carousel-card-badge badge-green">♻️</div>
+                    <img src="Foto/sustainablefashion.jpg" alt="Sustainable Fashion" class="carousel-card-image">
+                    <div class="carousel-card-body">
+                        <h3>Throwing Away New Shoes and Clothes Is Now Banned in Most of Europe</h3>
+                        <p>The European Union has made a brand new rule to ban fast fashion companies from throwing away new clothes and shoes.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="carousel-card card-3">
+                    <div class="carousel-card-badge badge-cyan">🐢</div>
+                    <img src="Foto/Sea Turtles.jpg" alt="Sea Turtles" class="carousel-card-image">
+                    <div class="carousel-card-body">
+                        <h3>Green Sea Turtles Are No Longer Endangered: A Big Win for Nature</h3>
+                        <p>Once classified as "endangered", green sea turtles' status was recently downgraded to "least concern" due to conservation efforts.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="carousel-controls">
+                <button class="carousel-arrow" onclick="slideCarousel(-1)">❮</button>
+                <div class="carousel-dots">
+                    <div class="carousel-dot active" onclick="goToSlide(0)"></div>
+                    <div class="carousel-dot" onclick="goToSlide(1)"></div>
+                    <div class="carousel-dot" onclick="goToSlide(2)"></div>
+                </div>
+                <button class="carousel-arrow" onclick="slideCarousel(1)">❯</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== FEATURES SECTION ========== -->
+    <section style="padding: 60px 20px;">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 3em; margin-bottom: 50px;">Why Join GreenStep?</h2>
+
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div style="background: var(--dark-bg); opacity: 0.9; padding: 30px; border-radius: 10px; text-align: center; border-top: 4px solid var(--primary-green);">
+                        <div style="font-size: 3em; margin-bottom: 15px;">🎯</div>
+                        <h4 style="color: var(--primary-green);">Weekly Challenges</h4>
+                        <p>Join eco-friendly challenges and earn points for every action you take.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div style="background: var(--dark-bg); opacity: 0.9; padding: 30px; border-radius: 10px; text-align: center; border-top: 4px solid var(--cyan);">
+                        <div style="font-size: 3em; margin-bottom: 15px;">🏆</div>
+                        <h4 style="color: var(--cyan);">Compete & Win</h4>
+                        <p>Climb the global leaderboard and unlock achievements with your actions.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div style="background: var(--dark-bg); opacity: 0.9; padding: 30px; border-radius: 10px; text-align: center; border-top: 4px solid var(--yellow);">
+                        <div style="font-size: 3em; margin-bottom: 15px;">📚</div>
+                        <h4 style="color: var(--yellow);">Learn & Grow</h4>
+                        <p>Access articles and tips to expand your environmental knowledge.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA SECTION ========== -->
+    <section class="cta-section">
+        <h2>Ready to Make a Difference?</h2>
+        <p>Start your eco-journey today and be part of a global movement</p>
+        <button class="cta-btn" onclick="openLoginModal()" style="border: none; cursor: pointer;">Get Started Now</button>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <p>&copy; 2026 GreenStep IDN.</p>
+        <p>Protecting Our Planet, One Step at a Time. 🌍</p>
+    </footer>
+    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="Js/common.js"></script>
+        <script src="Js/index.js"></script>
+</body>
+</html>
